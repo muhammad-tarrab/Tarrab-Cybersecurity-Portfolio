@@ -65,3 +65,39 @@ Your job is to document the incident in detail, including identifying the networ
 | ***14:25:29.576597 IP greatrecipesforme.com.http > your.machine.56378: Flags[.], ack 74, win 512, options [nop,nop,TS val 3302989649 ecr 3302989649], length 0*** | <br>
 ...<a lot of traffic on the port 80>... 
 
+
+## Respond: 
+
+### Section 1: Identify the network protocol involved in the incident
+
+The incident is centered around the HTTP protocol, which typically operates on port 80. Anomalies were detected in both DNS (Port 53) and HTTP traffic logs during TCPdump analysis. The transmission of the malicious file signifies an attack at the application layer, underscoring the criticality of securing the HTTP protocol in this scenario.
+
+### Incident Description and Investigation
+
+Several customers reported encountering a suspicious prompt upon visiting the website, compelling them to download and execute a file under the guise of browser updates, resulting in account lockouts. In response, the security team initiated an investigation using a sandbox environment and network traffic analysis tools such as tcpdump. The analysis revealed that the browser initially requested the IP address for the legitimate website, followed by a prompt to download the malicious file. Subsequent network traffic indicated a resolution of a new IP for a seemingly altered website. Further analysis unveiled a compromise in the website's code, facilitating the injection of code prompting users to download the malicious file. The compromise of the administrator account led to the locking out of all user accounts, suggestive of a potential brute force attack. The proliferation of the malicious file exacerbated the situation by infecting other computers.
+
+### Section 3: Recommend one remediation for brute force attacks
+
+Define Thresholds and Time Frame
+- Determine the number of consecutive failed login attempts that will trigger an account lockout.
+- Define the time window within which these failed attempts will be counted.
+
+Specify Lockout Duration
+- Establish the duration for which an account will remain locked after reaching the defined threshold of failed login attempts.
+
+Implement Account Lockout Mechanism
+- Configure the system to automatically lock user accounts that exceed the specified threshold of failed login attempts within the defined time frame.
+
+Set Up Notification Mechanisms
+- Implement notification mechanisms to alert administrators and users when an account is locked due to excessive failed login attempts.
+
+Educate Users
+- Provide comprehensive user education on the importance of strong, unique passwords, two-factor authentication (2FA), and adherence to security best practices to minimize the risk of successful brute force attacks.
+
+Test and Refine
+- Conduct thorough testing of the account lockout policy to ensure its effectiveness.
+- Refine the policy based on testing results and feedback from users and administrators.
+
+Monitor and Maintain
+- Regularly monitor account lockout events and adjust policy parameters as needed to adapt to evolving threats.
+- Maintain ongoing user education initiatives to reinforce security awareness and promote compliance with the account lockout policy.

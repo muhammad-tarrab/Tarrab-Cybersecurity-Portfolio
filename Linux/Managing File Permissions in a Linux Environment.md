@@ -18,10 +18,11 @@ As a security professional at a large organization, you work closely with the re
 #### 3. Change file permissions:
    - **Task One:** Check for files granting write permissions to others and adjust accordingly.
    - **Task Two:** Modify permissions of specific files based on the identified issues.
-   - **Task Three:** Address permissions on hidden files, ensuring proper access restrictions.
-   - **Task Four:** Evaluate and adjust permissions on directories as needed to enforce security policies.
-
-Throughout these tasks, permissions are modified using the `chmod` command, ensuring proper access control for users and groups while maintaining system integrity.
+   - **Task three:** Use the chmod command to change permissions of the project_m.txt file so that the group doesn’t have read or write permissions.
+   - **Task four:** Change file permissions on a hidden file
+   - **Task five:** Change directory permissions***
+     
+***Throughout these tasks, permissions are modified using the `chmod` command, ensuring proper access control for users and groups while maintaining system integrity.***
 
 #### 1. Check file and directory details:
 #### 1.1 Navigate to the `projects` Directory
@@ -145,7 +146,7 @@ drwx--x--- 2 researcher2 research_team 4096 May 19 04:45 drafts
 -rw-rw-r-- 1 researcher2 research_team   46 May 19 04:45 project_t.txt
 ```
 ****Does the group have permissions set to access the drafts directory and its contents?****<br>
-``Answer: Yes, the group has execute permissions and therefore has access to the drafts directory.``
+``Answer: Yes, the group has execute permissions and therefore has access to the drafts directory.``<br>
 ****Remove the execute permission for the group from the drafts directory.****
 ```sh
 researcher2@b3054688c4ab:~/projects$ chmod g-x drafts
